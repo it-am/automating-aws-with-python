@@ -10,5 +10,5 @@ for bucket in s3.buckets.all():
     print(bucket)
 
 # create a new s3 bucket     
-# new_bucket = s3.create_bucket(Bucket='somerandombucketnamemfjksdnfu34j9f8')
+# new_bucket = s3.create_bucket(Bucket='somerandombucketnamemfjksdnfu34j9f811')
 
