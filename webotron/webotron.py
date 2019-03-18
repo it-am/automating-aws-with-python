@@ -30,11 +30,16 @@ def setup_bucket(bucket):
     "Create and configure S3 bucket"
 
     #create S3 bucket (+handling exception in case bucket exists)
+    s3_bucket = None
+
     try:
         s3_bucket = s3.create_bucket(Bucket=bucket)
     except ClientError as e:
         if e.response['Error']['Code'] == 'BucketAlreadyOwnedByYou':
             s3_bucket = s3.Bucket(bucket)
+        else:
+            raise e
+
     #create an S3 public policy
     policy = """{
     "Version":"2012-10-17",
